@@ -1,24 +1,17 @@
-version: "2.2"
+version: '2'
+
 services:
-  asir_bind9:
+  dns:
     image: internetsystemsconsortium/bind9:9.16
     ports:
-      - 53:53
+    - 53:53
     volumes:
-      - conf1:/etc/bind
-      - conf2:/var/cache/bind
-      - conf3:/var/lib/bind
-      - conf4:/var/log
-  asir_cliente:
-    image: ubuntu
-    stdin_open: true  # docker run -i
-    tty: true         # docker run -t
-volumes:
-  conf1:
-    external: true
-  conf2:
-    external: true
-  conf3:
-    external: true
-  conf4:
-    external: true
+      - volume1:/etc/bind
+      - volume2:/var/cache/bind
+      - volume3:/var/lib/bind
+      - volume4:/var/log
+volumes: 
+    volume1:
+    volume2:
+    volume3:
+    volume4:  
